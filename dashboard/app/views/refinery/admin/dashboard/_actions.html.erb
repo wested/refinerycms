@@ -35,21 +35,33 @@
 <% locales = Refinery::I18n.locales.clone %>
 <% current_locale = ::I18n.locale %>
 <% current_locale_title = locales.delete(current_locale) %>
-<ul id='current_locale'>
-  <li>
-    <%= link_to "#", :style => "background-image: url('#{asset_path "refinery/icons/flags/#{current_locale}.png"}');" do %>
-      <%= current_locale_title.respond_to?(:force_encoding) ? current_locale_title.force_encoding('utf-8') : current_locale_title %>
-      <span><%= t('.change_language') %></span>
-      <span style='display:none;'><%= t('cancel', :scope => 'refinery.admin.form_actions') %></span>
-    <% end %>
-  </li>
-</ul>
-<ul id='other_locales' style='display: none'>
-  <% locales.sort_by{|key, value| value}.each do |locale, locale_title| %>
+<div id="locale_picker">
+  <ul id='current_locale'>
     <li>
-      <%= link_to locale_title.respond_to?(:force_encoding) ? locale_title.force_encoding('utf-8') : locale_title,
-                  refinery.admin_dashboard_path(:set_locale => locale),
-                  :style => "background-image: url('#{asset_path "refinery/icons/flags/#{locale}.png"}');" %>
+      <%= link_to "#" do %>
+        <span class="action"><%= t('.change_language') %></span>
+        <span class="action" style='display:none;'><%= t('cancel', :scope => 'refinery.admin.form_actions') %></span>
+        
+        <div class="locale_icon">
+          <%= refinery_icon_tag('locale.svg', :size => '24x24') %>
+          <span class="code"><%= current_locale.upcase %></span>
+        </div>
+        <%= current_locale_title.respond_to?(:force_encoding) ? current_locale_title.force_encoding('utf-8') : current_locale_title %>
+        
+      <% end %>
     </li>
-  <% end %>
-</ul>
+  </ul>
+  <ul id='other_locales' style='display: none'>
+    <% locales.sort_by{|key, value| value}.each do |locale, locale_title| %>
+      <li>
+        <%= link_to refinery.admin_dashboard_path(:set_locale => locale) do %>
+          <div class="locale_icon">
+            <%= refinery_icon_tag('locale.svg', :size => '24x24') %>
+            <span class="code"><%= locale.upcase %></span>
+          </div>
+          <%= locale_title.respond_to?(:force_encoding) ? locale_title.force_encoding('utf-8') : locale_title %>                    
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
