@@ -72,7 +72,7 @@ module Refinery
       end
 
       def base_url_hash
-        { :controller => '/refinery/pages', :action => 'show', :only_path => true }
+        { :controller => '/refinery/pages', :action => 'show' }
       end
 
     end
