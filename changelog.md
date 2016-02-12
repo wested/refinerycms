@@ -3,6 +3,16 @@
 * [See full list](https://github.com/refinery/refinerycms/compare/3-0-stable...master)
 
 
+## 3.0.2 [unreleased]
+
+* Fixed CSRF vulnerability found by [Shravan Kumar](https://github.com/cor3sm4sh3r) - Add protect_from_forgery with: :exception. [#3101](https://github.com/refinery/refinerycms/pull/3101). [Brice Sanchez](https://github.com/bricesanchez)
+* Add line numbers to stack trace. [#3093](https://github.com/refinery/refinerycms/pull/3093). [Jared Beck](https://github.com/jaredbeck)
+* Add icon to image picker warning. [#3075](https://github.com/refinery/refinerycms/pull/3075). [Anita Graham](https://github.com/anitagraham)
+* Specify that we are expecting action_name to be insert. [#3092](https://github.com/refinery/refinerycms/pull/3092). [Philip Arndt](https://github.com/parndt)
+
+* [See full list](https://github.com/refinery/refinerycms/compare/3.0.1...3.0.2)
+
+
 ## 3.0.1 [26 January 2015]
 * Set speakingurl-rails to 8.0.0, switch to poltergeist gem. [#3084](https://github.com/refinery/refinerycms/pull/3084). [Philip Arndt](https://github.com/parndt) & [Brice Sanchez](https://github.com/bricesanchez)
 * Install a compatible version of refinerycms-acts-as-indexed [#3079](https://github.com/refinery/refinerycms/issues/3079). [Philip Arndt](https://github.com/parndt)
